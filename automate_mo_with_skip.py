@@ -18,7 +18,7 @@ import pyautogui
 import pygetwindow as gw
 import time
 
-pyautogui.PAUSE = 0
+pyautogui.PAUSE = 0.05
 
 print('Press Ctrl-C to quit.')
 
