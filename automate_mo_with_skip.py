@@ -119,9 +119,7 @@ try:
         pyautogui.typewrite(str(mo)+' PL R1')
         pyautogui.click(1469,767)
 
-    print('Complete.')        
+    print('\nCompleted.')        
 
 except KeyboardInterrupt:
-    print('\nDone')
-
-print('\nDone')
+    print('\nCanceled')
