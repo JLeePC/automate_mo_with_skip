@@ -28,6 +28,8 @@ range_start = int(input('Enter the range start: '))
 
 range_ceiling = int(input('Enter the range ceiling: '))+1
 
+rev = str(input('Enter the rev: '))
+
 placeholder = []
 num_to_skip = []
 job_range = []
@@ -116,7 +118,7 @@ try:
         print('Status done')
         time.sleep(1.5)
         pyautogui.click(1140,699)
-        pyautogui.typewrite(str(mo)+' PL R1')
+        pyautogui.typewrite(str(mo)+' PL R'+rev)
         pyautogui.click(1469,767)
 
     print('\nCompleted.')        
