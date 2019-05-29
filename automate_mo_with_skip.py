@@ -71,7 +71,11 @@ if not job_range:
 
 
 try:
+    start_time = time.time()
+    print('Sart Time')
     for position_in_range in job_range:
+
+        start_loop = time.time()
 
         print("Current value of position_in_range: {}".format(position_in_range))
         
@@ -112,16 +116,23 @@ try:
         statusWindow = gw.getWindowsWithTitle('Status')
         while len(gw.getWindowsWithTitle('Status')) > 0:
             time.sleep(1)
-            print("Current value of getwindows: {}".format(len(gw.getWindowsWithTitle('Status'))))
+            # print("Current value of getwindows: {}".format(len(gw.getWindowsWithTitle('Status'))))
 
         # type mo
-        print('Status done')
         time.sleep(1.5)
         pyautogui.click(1140,699)
         pyautogui.typewrite(str(mo)+' PL R'+rev)
         pyautogui.click(1469,767)
-
-    print('\nCompleted.')        
+        stop_loop = round(time.time - start_loop, 3)
+        print('Loop time: ' + str(stop_loop) + 'seconds')
 
 except KeyboardInterrupt:
     print('\nCanceled')
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+minutes = (elapsed_time, 0)
+
+
+print('\nCompleted.')
+print('\nElapsed time: ' + str(elapsed_time))
