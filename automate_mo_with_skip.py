@@ -30,6 +30,8 @@ range_ceiling = int(input('Enter the range ceiling: '))+1
 
 rev = str(input('Enter the rev: '))
 
+z_fill = input('Do you need zfill? (1/0): ')
+
 placeholder = []
 num_to_skip = []
 job_range = []
@@ -77,13 +79,19 @@ try:
 
         start_loop = time.time()
 
-        print("Current value of position_in_range: {}".format(position_in_range))
+        if '1' in z_fill:            
+            print("Current value of position_in_range: {}".format(str(position_in_range).zfill(2)))
+        else:
+            print("Current value of position_in_range: {}".format(position_in_range))
         
         # click in IDLE window for inputs
         pyautogui.click(1891,202)
 
         # ask for job dash number
-        mo = "{0}-{1}".format(str(job),str(position_in_range))
+        if '1' in z_fill:
+            mo = "{0}-{1}".format(str(job),(str(position_in_range).zfill(2)))
+        else:
+            mo = "{0}-{1}".format(str(job),str(position_in_range))
         
         # activate window
         time.sleep(0.5)
@@ -123,16 +131,16 @@ try:
         pyautogui.click(1140,699)
         pyautogui.typewrite(str(mo)+' PL R'+rev)
         pyautogui.click(1469,767)
-        stop_loop = round(time.time - start_loop, 3)
-        print('Loop time: ' + str(stop_loop) + 'seconds')
+        stop_loop = round(time.time() - start_loop, 3)
+        print('Loop time: ' + str(stop_loop) + ' Seconds')
 
 except KeyboardInterrupt:
     print('\nCanceled')
 
 end_time = time.time()
-elapsed_time = end_time - start_time
+elapsed_time = round(end_time - start_time, 3)
 minutes = (elapsed_time, 0)
 
 
 print('\nCompleted.')
-print('\nElapsed time: ' + str(elapsed_time))
+print('\nElapsed time: ' + str(elapsed_time) + ' Seconds')
