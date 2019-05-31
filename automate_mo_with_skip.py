@@ -75,6 +75,8 @@ if not job_range:
 try:
     start_time = time.time()
     print('Sart Time')
+    loop_counter = 0
+    loop_time = 0
     for position_in_range in job_range:
 
         start_loop = time.time()
@@ -124,14 +126,15 @@ try:
         statusWindow = gw.getWindowsWithTitle('Status')
         while len(gw.getWindowsWithTitle('Status')) > 0:
             time.sleep(1)
-            # print("Current value of getwindows: {}".format(len(gw.getWindowsWithTitle('Status'))))
-
+        
         # type mo
         time.sleep(1.5)
         pyautogui.click(1140,699)
         pyautogui.typewrite(str(mo)+' PL R'+rev)
         pyautogui.click(1469,767)
         stop_loop = round(time.time() - start_loop, 3)
+        loop_counter = loop_counter + 1
+        loop_time = loop_time + stop_loop
         print('Loop time: ' + str(stop_loop) + ' Seconds')
 
 except KeyboardInterrupt:
@@ -139,8 +142,12 @@ except KeyboardInterrupt:
 
 end_time = time.time()
 elapsed_time = round(end_time - start_time, 3)
-minutes = (elapsed_time, 0)
-
+minutes = 0
+while elapsed_time > 60:
+    elapsed_time = elapsed_time - 60
+    minutes = minutes + 1
+average_loop = loop_time / loop_counter
+print('\nAverage time per loop: ' + str(round(average_loop, 3)) + ' Seconds')
+print('\nElapsed time: ' + str(minutes) + ' Minutes ' + str(round(elapsed_time, 3)) + ' Seconds')
 
 print('\nCompleted.')
-print('\nElapsed time: ' + str(elapsed_time) + ' Seconds')
