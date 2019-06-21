@@ -18,7 +18,7 @@ import pyautogui
 import pygetwindow as gw
 import time
 
-pyautogui.PAUSE = 0.05
+pyautogui.PAUSE = 0.005
 
 print('Press Ctrl-C to quit.')
 
@@ -143,7 +143,7 @@ except KeyboardInterrupt:
 end_time = time.time()
 elapsed_time = round(end_time - start_time, 3)
 minutes = 0
-while elapsed_time > 60:
+while elapsed_time >= 60:
     elapsed_time = elapsed_time - 60
     minutes = minutes + 1
 average_loop = loop_time / loop_counter
