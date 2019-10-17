@@ -36,7 +36,7 @@ placeholder = []
 num_to_skip = []
 job_range = []
 stop_loop = False
-skip_me = str(input("Do you have numbers to skip? (Y/N)"))
+skip_me = str(input("Do you have numbers to skip? (Y/N): "))
 if 'Y' in skip_me or 'y' in skip_me:
     # stop_loop is a secondary measure to prevent infinite loops, not required, but precautionary
     while not stop_loop:
@@ -77,14 +77,15 @@ try:
     print('Sart Time')
     loop_counter = 0
     loop_time = 0
+    print('------------------------------')
     for position_in_range in job_range:
 
         start_loop = time.time()
 
         if '1' in z_fill:            
-            print("Current value of position_in_range: {}".format(str(position_in_range).zfill(2)))
+            print("Current position: {}".format(str(position_in_range).zfill(2)))
         else:
-            print("Current value of position_in_range: {}".format(position_in_range))
+            print("Current position: {}".format(position_in_range))
         
         # click in IDLE window for inputs
         pyautogui.click(1891,202)
@@ -130,12 +131,15 @@ try:
         # type mo
         time.sleep(1.5)
         pyautogui.click(1140,699)
+        #pyautogui.typewrite(str(mo)+' PL')
         pyautogui.typewrite(str(mo)+' PL R'+rev)
         pyautogui.click(1469,767)
         stop_loop = round(time.time() - start_loop, 3)
         loop_counter = loop_counter + 1
         loop_time = loop_time + stop_loop
         print('Loop time: ' + str(stop_loop) + ' Seconds')
+        print('------------------------------')
+        time.sleep(4)
 
 except KeyboardInterrupt:
     print('\nCanceled')
