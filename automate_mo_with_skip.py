@@ -1,18 +1,4 @@
-#! python3
 # MISys semi-auto MO
-
-# Position top right of right screen
-# coordinates:
-# window    (1114,573)
-# MO no.    (942,325)
-# copy      (1163,325)
-# Print     (759,762)
-# printer   (1039,300)
-# pdf       (827,347)
-# ok        (1048,538)
-# type      (1140,699)
-# ok        (1469,767)
-# IDLE      (1891,202)
 
 import pyautogui
 import pygetwindow as gw
@@ -88,7 +74,7 @@ try:
             print("Current position: {}".format(position_in_range))
         
         # click in IDLE window for inputs
-        pyautogui.click(1891,202)
+        pyautogui.click(2350,15)
 
         # ask for job dash number
         if '1' in z_fill:
