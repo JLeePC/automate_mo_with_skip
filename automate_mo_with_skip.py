@@ -14,7 +14,7 @@ range_start = int(input('Enter the range start: '))
 
 range_ceiling = int(input('Enter the range ceiling: '))+1
 
-rev = str(input('Enter the rev: '))
+#rev = str(input('Enter the rev: '))
 
 z_fill = input('Do you need zfill? (1/0): ')
 
@@ -102,7 +102,7 @@ try:
         pyautogui.click(1039,300)
 
         # click pdf
-        time.sleep(1)
+        time.sleep(2)
         pyautogui.click(866,347)
 
         # click ok
@@ -118,7 +118,7 @@ try:
         time.sleep(1.5)
         pyautogui.click(1140,699)
         #pyautogui.typewrite(str(mo)+' PL')
-        pyautogui.typewrite(str(mo)+' PL R'+rev)
+        pyautogui.typewrite(str(mo)+' PL')
         pyautogui.click(1469,767)
         stop_loop = round(time.time() - start_loop, 3)
         loop_counter = loop_counter + 1
